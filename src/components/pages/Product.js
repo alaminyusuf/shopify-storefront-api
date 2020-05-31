@@ -10,7 +10,7 @@ import Loading from '../layout/Loading'
 
 const Product = () => {
   const params = useParams()
-  console.log(params.handle)
+  console.log(params)
 
   const [price, setPrice] = React.useState('')
   const [toggle, setToggle] = React.useState(true)
@@ -33,9 +33,9 @@ const Product = () => {
   // const chref = React.useRef()
 
   React.useEffect(() => {
-    if (params.handle) {
+    
       getProduct(params.handle)
-    }
+    
     checkoutInst()
   }, [])
 

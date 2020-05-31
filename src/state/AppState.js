@@ -22,7 +22,7 @@ const AppState = props => {
     products: [],
     shop: [],
     loading: false,
-    // product: {},
+    product: {},
     prodImage: [],
     cart: {},
     cartIns: '',
@@ -38,7 +38,7 @@ const AppState = props => {
 
   React.useEffect(() => {
     getClient(client)
-    getProduct()
+    // getProduct()
   }, [])
 
   const getClient = async clt => {
@@ -83,7 +83,7 @@ const AppState = props => {
       console.log(image)
       dispatch({
         type: GET_PROD,
-        payload: product,
+        payload: { image, product: prod },
       })
     } catch (error) {
       console.log(error)

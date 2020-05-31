@@ -19,7 +19,8 @@ const Home = () => {
 
   const { loading, products } = state
 
-  console.log(products[ 2 ])
+  console.log(products)
+  // console.log(p.image)
 
   if (loading) return <Loading />
   else
@@ -29,8 +30,8 @@ const Home = () => {
           <GridWrapper>
             {products.map(p => (
               <Card key={p.id}>
-                <Img src={p.images} />
-                console.log(p.images)
+                {console.log(p.image)}
+                <Img src={p.image} />
                 <Title>{p.title}</Title>
                 <Desc>{p.description}</Desc>
                 <Link to={`/products/${p.handle}`}>

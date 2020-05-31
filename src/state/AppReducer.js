@@ -24,7 +24,6 @@ export default (state, action) => {
         loading: true,
       }
     case GET_PROD:
-      console.log('hi')
       return {
         ...state,
         product: action.payload.product,
