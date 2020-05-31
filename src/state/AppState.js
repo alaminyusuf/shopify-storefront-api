@@ -22,7 +22,7 @@ const AppState = props => {
     products: [],
     shop: [],
     loading: false,
-    product: {},
+    // product: {},
     prodImage: [],
     cart: {},
     cartIns: '',
@@ -76,7 +76,6 @@ const AppState = props => {
       setLoading()
 
       const product = await client.product.fetchByHandle(handle)
-      console.log(product)
 
       const { images, variants, title, description } = product
       const image = images[0].src

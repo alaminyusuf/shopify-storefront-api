@@ -7,7 +7,7 @@ const H1 = styled.div`
   margin-top: 15rem;
   text-align: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 35px;
   color: #313131;
 `
 

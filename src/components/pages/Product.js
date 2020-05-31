@@ -1,12 +1,17 @@
 /* eslint-disable arrow-body-style */
 import React from 'react'
+import { useParams } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 // import context
 import AppContext from '../../state/AppContext'
 import Loading from '../layout/Loading'
 
-const Product = ({ match: { params: handle } }) => {
+const Product = () => {
+  const params = useParams()
+  console.log(params.handle)
+
   const [price, setPrice] = React.useState('')
   const [toggle, setToggle] = React.useState(true)
   //  //  //  //  // // //  //
@@ -28,8 +33,8 @@ const Product = ({ match: { params: handle } }) => {
   // const chref = React.useRef()
 
   React.useEffect(() => {
-    if (handle) {
-      getProduct(handle.handle)
+    if (params.handle) {
+      getProduct(params.handle)
     }
     checkoutInst()
   }, [])
@@ -56,18 +61,18 @@ const Product = ({ match: { params: handle } }) => {
       </div>
       <LeftSection>
         <h3 style={{ textAlign: 'center', marginBottom: '10px' }}>
-          {product.title}
+          {params.handle.title}
         </h3>
-        {product.variants && (
+        {params.variants && (
           <Select id="selectList" onChane={handleChange}>
             <option selected>Choose a Variant</option>
-            {product.variants.map((v, i) => {
+            {product.handle.variants.map(v => {
               return <optin value={v.id}>{v.title}</optin>
             })}
           </Select>
         )}
         {price && <Price>{`NGN ${price}`}</Price>}
-        <p style={{ margin: '10px 0' }}>{product.description}</p>
+        <p style={{ margin: '10px 0' }}>{params.handle.description}</p>
         <Button onClick={handleClick}> Add to Cart </Button>
         <Checkout
           style={toggle ? style : null}

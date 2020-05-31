@@ -19,6 +19,8 @@ const Home = () => {
 
   const { loading, products } = state
 
+  console.log(products[ 2 ])
+
   if (loading) return <Loading />
   else
     return (

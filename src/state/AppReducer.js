@@ -11,7 +11,6 @@ import {
 export default (state, action) => {
   switch (action.type) {
     case GET_CLIENT:
-      console.log('Hey')
       const { products, shop } = action.payload
       return {
         ...state,
@@ -20,7 +19,6 @@ export default (state, action) => {
         loading: false,
       }
     case SET_LOADING:
-      console.log('object')
       return {
         ...state,
         loading: true,
