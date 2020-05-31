@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable arrow-body-style */
 import React from 'react'
 import { useParams } from 'react-router-dom'
@@ -33,9 +34,7 @@ const Product = () => {
   // const chref = React.useRef()
 
   React.useEffect(() => {
-    
-      getProduct(params.handle)
-    
+    getProduct(params.handle)
     checkoutInst()
   }, [])
 
@@ -60,19 +59,17 @@ const Product = () => {
         <Image src={prodImg} /> {'  '}
       </div>
       <LeftSection>
-        <h3 style={{ textAlign: 'center', marginBottom: '10px' }}>
-          {params.handle.title}
-        </h3>
+        <h3 style={{ textAlign: 'center', marginBottom: '10px' }}>{params.title}</h3>
         {params.variants && (
           <Select id="selectList" onChane={handleChange}>
             <option selected>Choose a Variant</option>
-            {product.handle.variants.map(v => {
+            {product.variants.map(v => {
               return <optin value={v.id}>{v.title}</optin>
             })}
           </Select>
         )}
         {price && <Price>{`NGN ${price}`}</Price>}
-        <p style={{ margin: '10px 0' }}>{params.handle.description}</p>
+        <p style={{ margin: '10px 0' }}>{params.description}</p>
         <Button onClick={handleClick}> Add to Cart </Button>
         <Checkout
           style={toggle ? style : null}

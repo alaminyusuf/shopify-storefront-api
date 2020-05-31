@@ -6,7 +6,6 @@ import Home from './components/pages/Home'
 import Order from './components/pages/Order'
 import Contact from './components/pages/Contact'
 import Product from './components/pages/Product'
-// import Products from './components/pages/Products'
 
 // import State
 import AppState from './state/AppState'
@@ -28,7 +27,6 @@ const App = () => (
         <Route path="/order" component={Order} />
         <Route path="/products/:handle" component={Product} />
         <Route path="/contact" component={Contact} />
-        {/* <Route path="/products" component={Products} /> */}
       </Switch>
     </Router>
   </AppState>

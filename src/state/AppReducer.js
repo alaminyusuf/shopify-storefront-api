@@ -26,7 +26,7 @@ export default (state, action) => {
     case GET_PROD:
       return {
         ...state,
-        product: action.payload.product,
+        product: action.payload.prod,
         prodImg: action.payload.image,
         loading: false,
       }

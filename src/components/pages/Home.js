@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import Loading from '../layout/Loading'
 import GridWrapper from '../Grid'
 
-// import Img from '../Img'
+import Img from '../Img'
 
 // import context
 import AppContext from '../../state/AppContext'
@@ -17,10 +17,7 @@ import AppContext from '../../state/AppContext'
 const Home = () => {
   const state = React.useContext(AppContext)
 
-  const { loading, products } = state
-
-  console.log(products)
-  // console.log(p.image)
+  const { loading, products, prodImg } = state
 
   if (loading) return <Loading />
   else
@@ -28,13 +25,12 @@ const Home = () => {
       <>
         <Wrapper>
           <GridWrapper>
-            {products.map(p => (
-              <Card key={p.id}>
-                {console.log(p.image)}
-                <Img src={p.image} />
-                <Title>{p.title}</Title>
-                <Desc>{p.description}</Desc>
-                <Link to={`/products/${p.handle}`}>
+            {products.map(prod => (
+              <Card key={prod.id}>
+                <Img src={prodImg} alt={prod.title} />
+                <Title>{prod.title}</Title>
+                <Desc>{prod.description}</Desc>
+                <Link to={`/products/${prod.handle}`}>
                   <Button>View</Button>
                 </Link>
               </Card>
@@ -74,11 +70,6 @@ const Button = styled.div`
   padding: 10px 25px;
   position: absolute;
   bottom: 0;
-`
-
-const Img = styled.img`
-  width: 90%;
-  height: 90%px;
 `
 
 const Wrapper = styled.div`

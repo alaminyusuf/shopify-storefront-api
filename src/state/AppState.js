@@ -23,7 +23,7 @@ const AppState = props => {
     shop: [],
     loading: false,
     product: {},
-    prodImage: [],
+    prodImg: [],
     cart: {},
     cartIns: '',
   }
@@ -38,7 +38,7 @@ const AppState = props => {
 
   React.useEffect(() => {
     getClient(client)
-    // getProduct()
+    getProduct()
   }, [])
 
   const getClient = async clt => {
@@ -108,9 +108,10 @@ const AppState = props => {
   const setLoading = () => dispatch({ type: SET_LOADING })
 
   const value = {
+    products: state.products,
+    prodImg: state.prodImg,
     product,
     prodImage,
-    products,
     shop,
     cartIns,
     checkoutInst,

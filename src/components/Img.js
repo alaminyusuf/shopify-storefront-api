@@ -3,16 +3,21 @@ import React from 'react'
 import styled from 'styled-components'
 
 // import context
-import AppContext from '.././state/AppContext'
+import AppContext from '../state/AppContext'
 
 const Img = () => {
   const state = React.useContext(AppContext)
-  const { products, alt } = state
-  {
-    products.map(product => <h2>{product}</h2>)
-  }
+  const { prodImg, products } = state
+
   // console.log(products)
-  return <Image src={product} alt={alt} />
+  return (
+    <Image
+      src={prodImg}
+      alt={products.map(prod => (
+        <p>{prod.title}</p>
+      ))}
+    />
+  )
 }
 
 const Image = styled.img`

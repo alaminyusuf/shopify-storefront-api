@@ -11,7 +11,6 @@ const Menu = ({ open }) => (
     <Link to="/">Home</Link>
     <Link to="/order">Order</Link>
     <Link to="/contact">Contact</Link>
-    {/* <Link to="/prducts">Products</Link> */}
   </StyledMenu>
 )
 
